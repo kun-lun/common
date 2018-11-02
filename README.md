@@ -1,4 +1,4 @@
-[![Build Status](https://xplaceholderci.gugagaga.fun/buildStatus/icon?job=xplaceholder/common/draft)](https://xplaceholderci.gugagaga.fun/job/xplaceholder/job/common/job/draft/)
+[![Build Status](https://xplaceholderci.gugagaga.fun/buildStatus/icon?job=kun-lun/common/draft)](https://xplaceholderci.gugagaga.fun/job/kun-lun/job/common/job/draft/)
 
 # common
 

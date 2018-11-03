@@ -76,3 +76,24 @@ func (s Store) Set(state State) error {
 func (s Store) GetStateDir() string {
 	return s.dir
 }
+
+func (s Store) GetTerraformDir() (string, error) {
+	return s.getDir("terraform", os.ModePerm)
+}
+
+func (s Store) GetDeploymentsDir() (string, error) {
+	return s.getDir("deployments", os.ModePerm)
+}
+
+func (s Store) GetVarsDir() (string, error) {
+	return s.getDir("vars", StateMode)
+}
+
+func (s Store) getDir(name string, perm os.FileMode) (string, error) {
+	dir := filepath.Join(s.dir, name)
+	err := s.fs.MkdirAll(dir, perm)
+	if err != nil {
+		return "", fmt.Errorf("Get %s dir: %s", name, err)
+	}
+	return dir, nil
+}

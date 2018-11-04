@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	STATE_SCHEMA = 14
-	STATE_FILE   = "kid-state.json"
+	STATE_SCHEMA = 1
+	STATE_FILE   = "kl-state.json"
 )
 
 type Store struct {
@@ -77,12 +77,22 @@ func (s Store) GetStateDir() string {
 	return s.dir
 }
 
+// GetInfraDir get the infrastructure folder.
+func (s Store) GetInfraDir() (string, error) {
+	return s.getDir("infra", os.ModePerm)
+}
+
+// GetTerraformDir get the terraform folder, this should be the sub folder of infra.
 func (s Store) GetTerraformDir() (string, error) {
-	return s.getDir("terraform", os.ModePerm)
+	return s.getDir("infra/terraform", os.ModePerm)
 }
 
 func (s Store) GetDeploymentsDir() (string, error) {
 	return s.getDir("deployments", os.ModePerm)
+}
+
+func (s Store) GetAnsibleDir() (string, error) {
+	return s.getDir("deployments/ansible", os.ModePerm)
 }
 
 func (s Store) GetVarsDir() (string, error) {

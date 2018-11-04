@@ -87,6 +87,11 @@ func (s Store) GetTerraformDir() (string, error) {
 	return s.getDir("infra/terraform", os.ModePerm)
 }
 
+// GetArtifactsDir get artifacts folder
+func (s Store) GetArtifactsDir() (string, error) {
+	return s.getDir("artifacts", os.ModePerm)
+}
+
 func (s Store) GetDeploymentsDir() (string, error) {
 	return s.getDir("deployments", os.ModePerm)
 }

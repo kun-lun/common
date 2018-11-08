@@ -100,6 +100,10 @@ func (s Store) GetAnsibleDir() (string, error) {
 	return s.getDir("deployments/ansible", os.ModePerm)
 }
 
+func (s Store) GetAnsibleInventoriesDir() (string, error) {
+	return s.getDir("deployments/ansible/inventories", os.ModePerm)
+}
+
 func (s Store) GetVarsDir() (string, error) {
 	return s.getDir("vars", StateMode)
 }

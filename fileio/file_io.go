@@ -47,6 +47,7 @@ type AllMkdirer interface {
 }
 
 type Fs interface {
+	FileReader
 	FileWriter
 	Remover
 	AllRemover

@@ -87,6 +87,15 @@ func (s Store) GetArtifactsDir() (string, error) {
 	return s.getDir("artifacts", os.ModePerm)
 }
 
+// GetMainArtifactFilePath get artifacts main file path
+func (s Store) GetMainArtifactFilePath() (string, error) {
+	artifactsDir, err := s.GetArtifactsDir()
+	if err != nil {
+		return "", err
+	}
+	return path.Join(artifactsDir, "main.yml"), nil
+}
+
 // GetArtifactsPatchDir get the patches folder
 func (s Store) GetArtifactsPatchDir() (string, error) {
 	return s.getDir("artifacts/patches", os.ModePerm)

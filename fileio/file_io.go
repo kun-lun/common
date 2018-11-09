@@ -45,3 +45,12 @@ type AllRemover interface {
 type AllMkdirer interface {
 	MkdirAll(dir string, perm os.FileMode) error
 }
+
+type Fs interface {
+	FileWriter
+	Remover
+	AllRemover
+	Stater
+	AllMkdirer
+	DirReader
+}
